@@ -1,0 +1,49 @@
+{
+  "model": {
+    "path": "optimized_models/yolov8m_best.pt",
+    "onnx_path": "optimized_models/yolov8m_road_anomaly.onnx",
+    "tensorrt_path": "optimized_models/yolov8m_fp16.engine",
+    "input_size": [
+      640,
+      640
+    ],
+    "num_classes": 4,
+    "class_names": [
+      "Pothole",
+      "Alligator Crack",
+      "Longitudinal Crack",
+      "Other Damage"
+    ],
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.6,
+    "max_detections": 300
+  },
+  "inference": {
+    "device": "cuda",
+    "half": true,
+    "batch_size": 1,
+    "use_tensorrt": true
+  },
+  "camera": {
+    "source": 0,
+    "width": 1280,
+    "height": 720,
+    "fps": 30
+  },
+  "gps": {
+    "enabled": true,
+    "port": "/dev/ttyUSB0",
+    "baudrate": 9600
+  },
+  "reporting": {
+    "enabled": true,
+    "database": "detections.db",
+    "min_confidence": 0.4,
+    "report_interval": 300
+  },
+  "performance": {
+    "target_fps": 30,
+    "enable_tracking": true,
+    "log_inference_time": true
+  }
+}

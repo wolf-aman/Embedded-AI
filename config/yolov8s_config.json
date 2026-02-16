@@ -1,0 +1,60 @@
+{
+  "model": {
+    "path": "optimized_models/yolov8s_best.pt",
+    "onnx_path": "optimized_models/yolov8s_fp32.onnx",
+    "tensorrt_path": "optimized_models/yolov8s_fp16.engine",
+    "input_size": [640, 640],
+    "num_classes": 4,
+    "class_names": [
+      "Pothole",
+      "Alligator Crack",
+      "Longitudinal Crack",
+      "Other Damage"
+    ],
+    "confidence_threshold": 0.35,
+    "iou_threshold": 0.45
+  },
+  
+  "inference": {
+    "device": "cuda",
+    "half": true,
+    "batch_size": 1
+  },
+  
+  "camera": {
+    "source": 0,
+    "width": 1280,
+    "height": 720,
+    "fps": 30
+  },
+  
+  "gps": {
+    "enabled": true,
+    "port": "/dev/ttyUSB0",
+    "baudrate": 9600
+  },
+  
+  "reporting": {
+    "enabled": true,
+    "database": "detections.db",
+    "min_confidence": 0.5,
+    "report_interval": 300,
+    "batch_size": 10,
+    
+    "email_enabled": false,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "your_email@gmail.com",
+    "sender_password": "your_app_password",
+    "recipient_email": "municipal@example.com",
+    
+    "webhook_enabled": false,
+    "webhook_url": "https://api.example.com/road-anomalies"
+  },
+  
+  "output": {
+    "save_images": true,
+    "save_video": false,
+    "output_dir": "output/yolov8s_results"
+  }
+}
