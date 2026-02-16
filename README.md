@@ -539,15 +539,3 @@ ls optimized_models/
 - **Jetson Orin Nano**: 25-50 FPS (TensorRT)
 
 ---
-
-## 👥 Team
-
-- Sunny
-- Aman
-- Deepanshu
-
----
-
-## 📝 License
-
-MIT License
